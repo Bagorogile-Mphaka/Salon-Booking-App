@@ -5,7 +5,7 @@ namespace SalonBookingApp1.Models
 {
     public class Clients
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage="Name is required")]
         public string Name { get; set; }
@@ -21,7 +21,7 @@ namespace SalonBookingApp1.Models
 
 
         // Parameterized constructor
-        public Clients(Guid clientId, string name, string lastName,string email, string phoneNumber)
+        public Clients(int clientId, string name, string lastName,string email, string phoneNumber)
         {
             Id = clientId;
             Name = name;
