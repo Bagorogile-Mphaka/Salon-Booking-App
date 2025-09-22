@@ -16,7 +16,7 @@ namespace SalonBookingApp1.Models
         {
             
             BookingDate = DateTime.Now;
-            Status = BookingStatus.Pending;
+           
         }
 
         public enum BookingStatus
@@ -29,7 +29,7 @@ namespace SalonBookingApp1.Models
         //Parameterized constructor
         public Bookings(Guid clientId, Guid stylistId, Guid serviceId, DateTime bookingDate, BookingStatus status)
         {
-            Id = this.Id;
+            Id = clientId;
             ClientId = clientId;
             StylistId = stylistId;
             ServiceId = serviceId;

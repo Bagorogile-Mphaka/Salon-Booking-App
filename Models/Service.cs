@@ -7,7 +7,7 @@ namespace SalonBookingApp1.Models
     {
         public Guid Id { get; set; }
         [Required(ErrorMessage = "Service Name is required")]
-        public string Name { get; set; }
+        public string ServiceName { get; set; }
         [Required(ErrorMessage = "Description is required")]
         decimal Price { get; set; }
 
@@ -15,11 +15,11 @@ namespace SalonBookingApp1.Models
         public Service( Guid serviceId, string serviceName, decimal price)
         {
             Id = serviceId;
-            Name = serviceName;
+            ServiceName = serviceName;
             Price = price;
             
             
         }
-        // 
+        
     }
 }

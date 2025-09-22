@@ -19,19 +19,13 @@ namespace SalonBookingApp1.Models
         [Required(ErrorMessage="Phone Number is required")]
         public string PhoneNumber { get; set; }
 
-        // Default constructor
-        public Clients()
-        {
-            Id = Guid.NewGuid();
-            Name = string.Empty;
-            Email = string.Empty;
-            PhoneNumber = string.Empty;
-        }
+
         // Parameterized constructor
-        public Clients(Guid clientId, string name, string email, string phoneNumber)
+        public Clients(Guid clientId, string name, string lastName,string email, string phoneNumber)
         {
             Id = clientId;
             Name = name;
+            LastName = lastName;
             Email = email;
             PhoneNumber = phoneNumber;
         }
