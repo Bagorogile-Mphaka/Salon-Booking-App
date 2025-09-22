@@ -1,13 +1,16 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SalonBookingApp1.Models
 {
     public class Bookings
     {
         public Guid Id { get; set; }
-        public Guid ClientId { get; set; }
-        public Guid StylistId { get; set; }
-        public Guid ServiceId { get; set; }
+        public int ClientId { get; set; }
+        public int StylistId { get; set; }
+        public int TreatmentId { get; set; }
+
+        [Required (ErrorMessage="Booking Date is required")]
         public DateTime BookingDate { get; set; }
         public BookingStatus Status { get; set; }
 
@@ -16,6 +19,7 @@ namespace SalonBookingApp1.Models
         {
             
             BookingDate = DateTime.Now;
+            Status = BookingStatus.Pending;
            
         }
 
@@ -27,13 +31,14 @@ namespace SalonBookingApp1.Models
             Cancelled
         }
         //Parameterized constructor
-        public Bookings(Guid clientId, Guid stylistId, Guid serviceId, DateTime bookingDate, BookingStatus status)
+        public Bookings(Guid bookingId,int clientId, int stylistId, int treatmentId, DateTime bookingDate, BookingStatus status)
         {
-            Id = clientId;
+            Id = bookingId;
             ClientId = clientId;
             StylistId = stylistId;
-            ServiceId = serviceId;
+            TreatmentId = treatmentId;
             BookingDate = bookingDate;
+
             Status = status;
         }
 
