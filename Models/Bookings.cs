@@ -6,6 +6,8 @@ namespace SalonBookingApp1.Models
     public class Bookings
     {
         public Guid Id { get; set; }
+
+        //Foreign Keys
         public int ClientId { get; set; }
         public int StylistId { get; set; }
         public int TreatmentId { get; set; }
@@ -13,6 +15,12 @@ namespace SalonBookingApp1.Models
         [Required (ErrorMessage="Booking Date is required")]
         public DateTime BookingDate { get; set; }
         public BookingStatus Status { get; set; }
+
+        //Navigation properties
+        public Client? Client { get; set; }
+        public Stylist? Stylist { get; set; }
+        public Treatment? Treatment { get; set; }
+
 
         //Default constructor
         public Bookings()

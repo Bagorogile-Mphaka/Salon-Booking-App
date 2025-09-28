@@ -12,15 +12,18 @@ namespace SalonBookingApp1.Models
 
         [Required(ErrorMessage = "Price name is required")]
         decimal Price { get; set; }
+        public List<Bookings> Bookings { get; set; }
 
         // Parameterised constructor    
-        public Treatment( int treatmentId, string treatmentName, decimal price)
+        public Treatment( int treatmentId, string treatmentName, decimal price, List<Bookings> bookings)
         {
             Id = treatmentId;
             TreatmentName = treatmentName;
             Price = price;
-            
-            
+            Bookings = bookings;
+
+
+
         }
         
     }

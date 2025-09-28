@@ -15,14 +15,16 @@ namespace SalonBookingApp1.Models
         [Required(ErrorMessage = "Last Name is required")]
         public string LastName { get; set; }
 
+        public List<Bookings> Bookings { get; set; }
 
 
-        public Stylist(Guid stylistId, string name, string email, string lastName)
+        public Stylist(Guid stylistId, string name, string email, string lastName, List<Bookings> bookings)
         {
             Id = stylistId;
             Name = name;
             LastName = lastName;
             Email = email;
+            Bookings = bookings;
         }
     }
 }     
