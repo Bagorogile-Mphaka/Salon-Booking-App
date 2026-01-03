@@ -25,7 +25,7 @@ namespace SalonBookingApp1.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Client>> GetClient(int id)
         {
-            var client = await _context.Clients.FindAsync(id);
+            var client = await _context.Clients.FirstOrDefaultAsync(c=>c.ClientId==id);
             if (client == null)
                 return NotFound();
 
@@ -40,13 +40,13 @@ namespace SalonBookingApp1.Controllers
             await _context.SaveChangesAsync();
 
             //Returns the new client + 201 status
-            return CreatedAtAction(nameof(GetClient), new { id = client.Id }, client);
+            return CreatedAtAction(nameof(GetClient), new { id = client.ClientId }, client);
         }
         //PUT: api/clients/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutClient(int id, Client client)
         {
-            if (id != client.Id)
+            if (id != client.ClientId)
                 return BadRequest();
             _context.Entry(client).State = EntityState.Modified;
             try
@@ -55,7 +55,7 @@ namespace SalonBookingApp1.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!_context.Clients.Any(e => e.Id == id))
+                if (!_context.Clients.Any(e => e.ClientId == id))
                     return NotFound();
                 else
                     throw;
